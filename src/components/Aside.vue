@@ -1,28 +1,24 @@
 <template>
 
-  <div class="header">
-    <div class="header__nav">
+  <div class="aside">
+    <div class="aside__nav">
+      <NavList/>
     </div>
 
-
-    <div class="header__weather">
-      Здесь будет погода
-    </div>
   </div>
 
 
 </template>
 <script>
-
+import NavList from "@/components/NavList.vue"
 
 export default {
-  name: 'Header',
-  components:{
+  name: 'Aside',
+  components: {
+    NavList,
   },
   data() {
-    return {
-
-    }
+    return {}
   },
   methods: {},
 
@@ -36,11 +32,11 @@ export default {
 <style lang="scss">
 @import '../assets/styles/vars';
 
-.header {
+.aside {
   @extend %font;
   display: flex;
-  min-height: 90px;
-  max-width: 100%;
+  max-width: 300px;
+  width: 100%;
   padding: 1%;
   align-items: center;
   justify-content: space-between;
@@ -52,16 +48,6 @@ export default {
     justify-content: space-between;
   }
 
-  &__btn {
-    color: var(--color-text);
-  }
-
-  &__weather {
-    font-size: 28px;
-    flex-grow: 0;
-    flex-shrink: 0;
-    margin-left: 28px;
-  }
 }
 
 
