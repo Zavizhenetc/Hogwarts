@@ -37,7 +37,8 @@ export default {
   display: flex;
   max-width: 300px;
   width: 100%;
-  padding: 1%;
+  height: 100vh;
+  padding: 0 2%;
   align-items: center;
   justify-content: space-between;
   color: var(--color-text);

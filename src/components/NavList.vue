@@ -44,7 +44,9 @@ export default {
   flex-direction: column;
   max-width: 300px;
   width: 100%;
+  height: 100vh;
   padding: 0;
+  margin: 0;
   justify-content: space-between;
   color: var(--color-text);
   list-style: none;
@@ -55,7 +57,6 @@ export default {
   }
 
   &__item {
-
   }
 
   &__item-title {
@@ -63,6 +64,7 @@ export default {
     font-size: 32px;
     letter-spacing: 2px;
     text-align: left;
+    margin: 0;
     margin-right: 12px;
   }
 
@@ -70,6 +72,7 @@ export default {
     text-decoration: none;
     display: flex;
     width: 100%;
+    height: auto;
   }
 
   &__item-logo {
