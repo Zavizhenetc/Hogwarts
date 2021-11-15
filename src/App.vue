@@ -21,8 +21,7 @@ export default {
 body {
   padding: 0;
   margin: 0;
-
-
+  cursor: var(--cursor)
 }
 
 :root {
@@ -38,13 +37,14 @@ body {
   padding: 0;
   margin: 0;
   background-color: var(--background);
-  cursor: var(--cursor);
+
   position: relative;
 
   //background-: blur(10px);
 }
 
 .blur {
+
   background: var(--bgimg) no-repeat center;
   background-size: cover;
   filter: blur(3px);

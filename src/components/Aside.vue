@@ -3,6 +3,7 @@
   <div class="aside">
     <div class="aside__nav">
       <NavList/>
+      <div v-for="item in allCharacters  " :key="item.id">{{item.actor}}</div>
     </div>
 
   </div>
@@ -20,10 +21,18 @@ export default {
   data() {
     return {}
   },
+
   methods: {},
-
+  computed: {
+    allCharacters() {
+      return this.$store.getters.GET_HARRY_CHARACTERS;
+    }
+  },
+  created() {
+    this.$store.dispatch('fetchHarry');
+  },
   mounted() {
-
+    console.log(this.allCharacters)
   }
 }
 </script>

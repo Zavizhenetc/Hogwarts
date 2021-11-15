@@ -11,7 +11,6 @@ import Aside from  '@/components/Aside.vue'
 export default {
   name: 'Home',
   components: {
-
     Aside
   }
 }

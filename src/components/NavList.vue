@@ -44,7 +44,7 @@ export default {
   flex-direction: column;
   max-width: 300px;
   width: 100%;
-  height: 100vh;
+  height: 60vh;
   padding: 0;
   margin: 0;
   justify-content: space-between;
@@ -57,6 +57,14 @@ export default {
   }
 
   &__item {
+    opacity: .2;
+    transition: all .8s ease;
+
+    &:hover{
+      transition: all .8s ease;
+      opacity: 1;
+      filter: blur(0);
+    }
   }
 
   &__item-title {
@@ -73,6 +81,8 @@ export default {
     display: flex;
     width: 100%;
     height: auto;
+    cursor: var(--cursor);
+
   }
 
   &__item-logo {
