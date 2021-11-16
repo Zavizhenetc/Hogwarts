@@ -3,7 +3,7 @@
   <div class="aside">
     <div class="aside__nav">
       <NavList/>
-      <div v-for="item in allCharacters  " :key="item.id">{{item.actor}}</div>
+
     </div>
 
   </div>
@@ -23,16 +23,9 @@ export default {
   },
 
   methods: {},
-  computed: {
-    allCharacters() {
-      return this.$store.getters.GET_HARRY_CHARACTERS;
-    }
-  },
-  created() {
-    this.$store.dispatch('fetchHarry');
-  },
+  computed: {},
+
   mounted() {
-    console.log(this.allCharacters)
   }
 }
 </script>
@@ -47,7 +40,7 @@ export default {
   max-width: 300px;
   width: 100%;
   height: 100vh;
-  padding: 0 2%;
+  padding: 0 28px;
   align-items: center;
   justify-content: space-between;
   color: var(--color-text);

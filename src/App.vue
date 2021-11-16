@@ -28,7 +28,8 @@ body {
   --color-text: #ffffff;
   --background: #1f2024;
   --cursor: url('./assets/images/cursor_harry.png'), auto;
-  --bgimg: url('./assets/images/hogwarts-background.jpg')
+  //--bgimg: url('./assets/images/hogwarts-background.jpg');
+  --bgimg: url('./assets/images/bg_hogwarts.jpg');
 }
 
 #app {
@@ -44,12 +45,11 @@ body {
 }
 
 .blur {
-
   background: var(--bgimg) no-repeat center;
   background-size: cover;
-  filter: blur(3px);
+  filter: blur(4px);
   width: 100%;
-  opacity: .5;
+  opacity: .35;
   height: 100vh;
   width: 100%;
   position: absolute;
