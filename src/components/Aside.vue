@@ -3,6 +3,7 @@
   <div class="aside">
     <div class="aside__nav">
       <NavList/>
+
     </div>
 
   </div>
@@ -20,10 +21,11 @@ export default {
   data() {
     return {}
   },
+
   methods: {},
+  computed: {},
 
   mounted() {
-
   }
 }
 </script>
@@ -37,7 +39,8 @@ export default {
   display: flex;
   max-width: 300px;
   width: 100%;
-  padding: 1%;
+  height: 100vh;
+  padding: 0 28px;
   align-items: center;
   justify-content: space-between;
   color: var(--color-text);

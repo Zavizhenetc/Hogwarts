@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-
+import {axiosHarryInstance, } from "../api/api";
+import {HARRY_CHARACTERS} from "../api/routes";
 Vue.use(Vuex)
 
 export default new Vuex.Store({
@@ -48,15 +49,31 @@ export default new Vuex.Store({
                 img: 'https://i.ibb.co/MgD0d4N/Slytherin-logo.png',
                 id: 7,
             },
-        ]
+        ],
+        harryArr: [],
     },
     getters:{
         GET_NAV_LIST(state){
             return state.navList
         },
+        GET_HARRY_CHARACTERS(state) {
+            return state.harryArr
+        }
 
     },
-    mutations: {},
-    actions: {},
+    mutations: {
+        SET_HARRY_ARR(state, data) {
+            state.harryArr = data
+        }
+    },
+    actions: {
+        fetchHarry(context) {
+            return axiosHarryInstance.get(HARRY_CHARACTERS)
+                .then( res => {
+                    context.commit('SET_HARRY_ARR', res.data)
+                })
+                .catch(err => console.log(err))
+        }
+    },
     modules: {}
 })

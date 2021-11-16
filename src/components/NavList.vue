@@ -44,7 +44,9 @@ export default {
   flex-direction: column;
   max-width: 300px;
   width: 100%;
+  height: 60vh;
   padding: 0;
+  margin: 0;
   justify-content: space-between;
   color: var(--color-text);
   list-style: none;
@@ -55,7 +57,15 @@ export default {
   }
 
   &__item {
+    opacity: .2;
+    transition: all .6s ease;
 
+    &:hover{
+      transition: all .6s ease;
+      opacity: 1;
+      filter: blur(0);
+      transform: scale3d(0.8, 2, 0.2) translateZ(-30px)
+    }
   }
 
   &__item-title {
@@ -63,6 +73,7 @@ export default {
     font-size: 32px;
     letter-spacing: 2px;
     text-align: left;
+    margin: 0;
     margin-right: 12px;
   }
 
@@ -70,6 +81,9 @@ export default {
     text-decoration: none;
     display: flex;
     width: 100%;
+    height: auto;
+    cursor: var(--cursor);
+
   }
 
   &__item-logo {
