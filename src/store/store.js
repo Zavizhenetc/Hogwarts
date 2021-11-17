@@ -51,6 +51,7 @@ export default new Vuex.Store({
             },
         ],
         harryArr: [],
+        descriptionState: false,
     },
     getters:{
         GET_NAV_LIST(state){
@@ -58,13 +59,19 @@ export default new Vuex.Store({
         },
         GET_HARRY_CHARACTERS(state) {
             return state.harryArr
-        }
+        },
+        SHOW_DESCRIPTION(state) {
+            return state.descriptionState
+        },
 
     },
     mutations: {
         SET_HARRY_ARR(state, data) {
             state.harryArr = data
-        }
+        },
+        SET_SHOW_DESCRIPTION(state, bool) {
+            return this.state.descriptionState = bool
+        },
     },
     actions: {
         fetchHarry(context) {
@@ -73,7 +80,10 @@ export default new Vuex.Store({
                     context.commit('SET_HARRY_ARR', res.data)
                 })
                 .catch(err => console.log(err))
-        }
+        },
+        showCharDescription(context, payload) {
+            context.commit('SET_SHOW_DESCRIPTION', payload)
+        },
     },
     modules: {}
 })

@@ -1,41 +1,56 @@
 <template>
   <div class="characters">
+    <CharDescription :description="description"
+                     v-if="descriptionState"/>
     <div class="characters__item"
          v-for="item in allCharacters"
          :key="item.id"
-    @click="showDescription(item)">
+         @click="showDescription(item)">
       <div class="characters__img-container">
         <img class="characters__img" src="../assets/images/404.png" alt="нет изображения" v-if="!item.image">
         <img class="characters__img" :src="`${item.image}`" :alt="`${item.name}`" v-else>
       </div>
       <div class="characters__item-descriptions">
-        <div class="characters__item-house" v-if="item.house">{{item.house}}</div>
-        <div class="characters__item-name">{{ item.name }}</div>
-        <div class="characters__item-alternative-name" v-for="item in item.alternate_names" :key="item.id"> <span v-if="item">{{ item}}</span></div>
-        <div class="characters__item-gender" v-if="item.gender"><span>Gender: </span>{{item.gender}}</div>
+        <div class="description description__house" v-if="item.house"><span class="description__title">Faculty:</span>
+          {{ item.house }}
+        </div>
+        <div class="description description__name"><span class="description__title">Name: </span>{{ item.name }}</div>
+        <div class="description description__gender" v-if="item.gender"><span class="description__title">Gender: </span>{{
+            item.gender
+          }}
+        </div>
       </div>
 
     </div>
   </div>
 </template>
 <script>
+import CharDescription from "@/components/CharacterDescription.vue";
 
 export default {
   name: 'AllCharacters',
+  components: {CharDescription},
   data() {
-    return {}
+    return {
+      description: {},
+    }
   },
   computed: {
     allCharacters() {
       return this.$store.getters.GET_HARRY_CHARACTERS;
-    }
+    },
+    descriptionState() {
+      return this.$store.getters.SHOW_DESCRIPTION;
+    },
   },
   created() {
     this.$store.dispatch('fetchHarry');
   },
   methods: {
-    showDescription(item){
-      console.log(item)
+    showDescription(item) {
+      this.description = item;
+      this.$store.dispatch('showCharDescription', true);
+      console.log(this.description)
     }
   },
 
@@ -46,36 +61,38 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style lang="scss">
+<style lang="scss" scoped>
 @import '../assets/styles/vars';
 
 .characters {
+  //position: relative;
   padding: 60px 0;
   width: 100%;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
   grid-gap: 18px;
   grid-row-gap: 40px;
+  animation: blur 3s ease;
 
   &__item {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between;
     max-width: 280px;
     width: 100%;
     height: 340px;
     border-radius: 3%;
 
-    &:hover{
+    &:hover {
       .characters__img-container {
         transition: all .8s ease;
         box-shadow: 0px 0px 13px 0px rgb(216 222 229);
       }
-      .characters__item-descriptions{
+
+      .characters__item-descriptions {
         transition: all .8s ease;
         opacity: 1;
-        transform: perspective(500px) scale3d(1.1, 1.1, 0.2) translateZ(-30px)
+        transform: scale(1.2)
       }
     }
   }
@@ -99,17 +116,46 @@ export default {
     height: 200px;
     transition: all .8s ease;
     box-shadow: 0px 0px 13px 0px rgb(216 222 229 / 31%);
+    margin-bottom: 30px;
   }
-  &__item-descriptions{
 
+  &__item-descriptions {
+    font-family: sans-serif;
     display: flex;
+    justify-content: space-between;
     flex-direction: column;
     color: var(--color-text);
     opacity: .2;
     transition: all .8s ease;
 
   }
+
+  .description {
+    margin-bottom: 8px;
+
+    &__title {
+      text-transform: uppercase;
+    }
+  }
 }
 
+@keyframes blur {
+  0% {
+    opacity: .05;
+    filter: blur(40px);
+    transform: translateY(-100%) scale3d(.001, .001, 1);
+  }
+  50% {
+    opacity: .5;
+    filter: blur(20px);
+
+  }
+
+  100% {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0);
+  }
+}
 
 </style>

@@ -31,7 +31,7 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style lang="scss">
+<style lang="scss" scoped>
 @import '../assets/styles/vars';
 
 .aside {
@@ -44,6 +44,7 @@ export default {
   align-items: center;
   justify-content: space-between;
   color: var(--color-text);
+  animation: blur 3s ease;
 
   &__nav {
     display: flex;
@@ -53,5 +54,20 @@ export default {
 
 }
 
+@keyframes blur {
+  0% {
+    opacity: .01;
+    filter: blur(30px);
+    transform: scale3d(0, 0, 0) ;
+  }
+  50% {
+    opacity: .5;
+    filter: blur(5px);
+  }
+  100% {
+    opacity: 1;
+    filter: blur(0);
+  }
+}
 
 </style>
