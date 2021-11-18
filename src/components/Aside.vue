@@ -49,7 +49,9 @@ export default {
   &__nav {
     display: flex;
     width: 100%;
-    justify-content: space-between;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
   }
 
 }

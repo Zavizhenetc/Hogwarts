@@ -11,7 +11,6 @@
         >
       </router-link>
     </li>
-
   </ul>
 </template>
 <script>
@@ -44,7 +43,7 @@ export default {
   flex-direction: column;
   max-width: 300px;
   width: 100%;
-  height: 60vh;
+  height: 80%;
   padding: 0;
   margin: 0;
   justify-content: space-between;
@@ -59,18 +58,20 @@ export default {
   &__item {
     opacity: .2;
     transition: all .6s ease;
+    transform: scale3d(.75, 2, 2.2);
+    filter: blur(2px);
 
-    &:hover{
+    &:hover {
       transition: all .6s ease;
       opacity: 1;
       filter: blur(0);
-      transform: scale3d(0.8, 2, 0.2) translateZ(-30px)
+      transform: scale3d(1.3, 1, 2.2) translate(20%, 0) ;
     }
   }
 
   &__item-title {
     @extend %font;
-    font-size: 32px;
+    font-size: 28px;
     letter-spacing: 2px;
     text-align: left;
     margin: 0;

@@ -26,7 +26,7 @@
 </template>
 <script>
 import CharDescription from "@/components/CharacterDescription.vue";
-
+import HARRY_CHARACTERS from "../api/routes";
 export default {
   name: 'AllCharacters',
   components: {CharDescription},
@@ -44,7 +44,7 @@ export default {
     },
   },
   created() {
-    this.$store.dispatch('fetchHarry');
+    this.$store.dispatch('fetchHarry' );
   },
   methods: {
     showDescription(item) {
@@ -72,7 +72,7 @@ export default {
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
   grid-gap: 18px;
   grid-row-gap: 40px;
-  animation: blur 3s ease;
+  animation: blur 2.6s ease;
 
   &__item {
     display: flex;
@@ -83,6 +83,7 @@ export default {
     height: 340px;
     border-radius: 3%;
 
+
     &:hover {
       .characters__img-container {
         transition: all .8s ease;
@@ -92,7 +93,9 @@ export default {
       .characters__item-descriptions {
         transition: all .8s ease;
         opacity: 1;
-        transform: scale(1.2)
+        transform: scale3d(1.1, 1.2, 1);
+        filter: blur(0);
+
       }
     }
   }
@@ -117,17 +120,19 @@ export default {
     transition: all .8s ease;
     box-shadow: 0px 0px 13px 0px rgb(216 222 229 / 31%);
     margin-bottom: 30px;
+
   }
 
   &__item-descriptions {
-    font-family: sans-serif;
+    font-family: Moyenage, 'sans-serif';
+    letter-spacing: 1.5px;
     display: flex;
     justify-content: space-between;
     flex-direction: column;
     color: var(--color-text);
     opacity: .2;
     transition: all .8s ease;
-
+    filter: blur(2px);
   }
 
   .description {
@@ -141,20 +146,15 @@ export default {
 
 @keyframes blur {
   0% {
-    opacity: .05;
+    opacity: .08;
     filter: blur(40px);
-    transform: translateY(-100%) scale3d(.001, .001, 1);
+    transform: translateY(-100%) scale3d(.01, .01, 1);
   }
-  50% {
-    opacity: .5;
-    filter: blur(20px);
 
-  }
 
   100% {
     opacity: 1;
     filter: blur(0);
-    transform: translateY(0);
   }
 }
 

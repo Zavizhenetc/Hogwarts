@@ -1,10 +1,8 @@
 <template>
   <div class="char-description">
     <div class="overlay" @click="hideDescription"></div>
-    <div class="char-description__item"
-    >
+    <div class="char-description__item">
       <div class="blur"></div>
-      <div class="description"  ></div>
       <img class="char-description__close-btn" src="../assets/images/close_btn.svg" alt="закрыть"
            @click="hideDescription">
       <div class=" char-description__img-container">
@@ -13,15 +11,57 @@
         <img class="char-description__img" :src="`${description.image}`" :alt="`${description.name}`" v-else>
       </div>
       <div class="char-description__item-descriptions">
-        <div class="description description__house" v-if="description.house">{{ description.house }}</div>
-        <div class="description description__name">{{ description.name }}</div>
+        <div class="description description__wizard" v-if="description.wizard"><span
+            class="description__title">Wizard</span></div>
+        <div class="description description__hogwarts-staff" v-if="description.hogwartsStaff">
+          <span class="description__title">Hogwarts Staff</span></div>
+        <div class="description description__hogwarts-student" v-if="description.hogwartsStudent">
+          <span class="description__title">Hogwarts Student</span></div>
+        <div class="description description__name" v-if="description.name"><span class="description__title">Name:</span>{{
+            description.name
+          }}
+        </div>
+        <div class="description description__species" v-if="description.species"><span class="description__title">Species:</span>{{
+            description.species
+          }}
+        </div>
+        <div class="description description__house" v-if="description.house"><span
+            class="description__title">Faculty:</span>{{ description.house }}
+        </div>
+        <div class="description description__gender" v-if="description.gender">
+          <span class="description__title">Gender: </span>{{ description.gender }}
+        </div>
+        <div class="description description__birth" v-if="description.dateOfBirth">
+          <span class="description__title">Date of birth: </span>{{ description.dateOfBirth }}
+        </div>
+        <div class="description description__eye-color" v-if="description.eyeColour">
+          <span class="description__title">Eye colour: </span>{{ description.eyeColour }}
+        </div>
+        <div class="description description__hair-color" v-if="description.hairColour">
+          <span class="description__title">Hair colour: </span>{{ description.hairColour }}
+        </div>
+        <div class="description description__ancestry" v-if="description.ancestry">
+          <span class="description__title">Ancestry: </span>{{ description.ancestry }}
+        </div>
+        <div class="description description__patronus" v-if="description.patronus">
+          <span class="description__title">Patronus: </span>{{ description.patronus }}
+        </div>
+        <div class="description description__wand-core" v-if="description.wand.core">
+          <span class="description__title">Wand core: </span>{{ description.wand.core }}
+        </div>
+        <div class="description description__wand-length" v-if="description.wand.length">
+          <span class="description__title">Wand length: </span>{{ description.wand.length }}
+        </div>
+        <div class="description description__wand-wood" v-if="description.wand.wood">
+          <span class="description__title">Wand wood: </span>{{ description.wand.wood }}
+        </div>
         <div class="description description__alternative-name" v-for="item in description.alternate_names"
              :key="item.id"><span
-            v-if="item" class="description__title">{{ description }}</span></div>
-        <div class="description description__gender" v-if="description.gender"><span
-            class="description__title">Gender: </span>{{
-            description.gender
-          }}
+            v-if="item" class="description__title">Alternative names: </span>{{ item }}
+        </div>
+        <div class="description description__alternative-name" v-for="item in description.alternate_actors"
+             :key="item.id"><span
+            v-if="item" class="description__title">Alternative actors: </span>{{ item }}
         </div>
       </div>
     </div>
@@ -43,6 +83,7 @@ export default {
   },
   computed: {},
   created() {
+    console.log(this.description)
   },
   methods: {
     hideDescription() {
@@ -67,7 +108,7 @@ export default {
   right: 0;
   bottom: 0;
   z-index: 999;
-  animation: blur 1.5s ease;
+  animation: blur 1.5s ease ;
 
   &__close-btn {
     object-fit: contain;
@@ -84,31 +125,68 @@ export default {
     }
 
   }
-
   &__item {
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     animation: blur 1.5s ease;
-    max-width: calc(70% - 300px);
-    width: 100%;
+
     border-radius: 2%;
-    box-shadow:0px 0px 18px 4px rgb(0 0 0 / 95%);
+    box-shadow: 0px 0px 18px 4px rgb(0 0 0 / 95%);
     overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3%;
+  }
+
+  &__img-container {
+    max-width: 160px;
+    margin-right: 38px;
+  }
+
+  &__img {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    object-fit: cover;
+    box-shadow: 0px 0px 13px 0px rgb(216 222 229 / 31%);
+  }
+
+  &__item-descriptions {
+    text-align: center;
   }
 }
-.blur{
+
+.description {
+  font-family: Moyenage, 'sans-serif';
+  font-weight: 400;
+  font-size: 20px;
+  letter-spacing: 1.5px;
+  color: var(--color-text);
+  opacity: .7;
+  margin-bottom: 8px;
+  &:last-child{
+    margin-bottom: 0;
+  }
+  &__title{
+    opacity: 1;
+
+  }
+}
+
+.blur {
   position: absolute;
   width: 100%;
   height: 100%;
   z-index: -1;
   background: var(--background);
-  opacity: .65;
-}
-.description{
+  opacity: .85;
 
 }
+
 .overlay {
   position: fixed;
   width: 100%;
