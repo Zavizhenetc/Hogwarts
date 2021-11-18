@@ -3,7 +3,8 @@
     <li class="nav__item"
         v-for="item in navList" :key="item.id"
     >
-      <router-link :to="{path:item.path}" class="nav__btn">
+      <router-link :to="{path:item.path}" class="nav__btn"
+      @click.native="fetchChar(item.id)">
         <p class="nav__item-title">{{ item.title }} </p>
         <img class="nav__item-logo"
              v-if="item.img != null" :src="`${item.img}`"
@@ -25,7 +26,27 @@ export default {
       return this.$store.getters.GET_NAV_LIST;
     },
   },
-  methods: {},
+  methods: {
+    fetchChar(id){
+      if(id == 1){
+        this.$store.dispatch('fetchHarry')
+      } else if(id == 2){
+        this.$store.dispatch('fetchHarryStaff')
+      } else if(id == 3){
+        this.$store.dispatch('fetchHarryStudents')
+      } else if( id == 4){
+        this.$store.dispatch('fetchHarryHouse', 'gryffindor')
+      }else if( id == 5){
+        this.$store.dispatch('fetchHarryHouse', 'hufflepuff')
+      }else if( id == 6){
+        this.$store.dispatch('fetchHarryHouse', 'ravenclaw')
+      }else if( id == 7){
+        this.$store.dispatch('fetchHarryHouse', 'slytherin')
+      }
+
+
+    },
+  },
 
   mounted() {
 
@@ -59,13 +80,13 @@ export default {
     opacity: .2;
     transition: all .6s ease;
     transform: scale3d(.75, 2, 2.2);
-    filter: blur(2px);
+    filter: blur(1.5px);
 
     &:hover {
       transition: all .6s ease;
       opacity: 1;
       filter: blur(0);
-      transform: scale3d(1.3, 1, 2.2) translate(20%, 0) ;
+      transform: scale3d(1.3, 1.2, 2.2) translate(20%, 0) ;
     }
   }
 

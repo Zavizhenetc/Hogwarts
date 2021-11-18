@@ -104,8 +104,11 @@ export default new Vuex.Store({
                 .catch(err => console.log(err))
         },
         fetchHarryHouse(context, house) {
+
             return axiosHarryInstance.get(HARRY_CHARACTERS_HOUSE(house))
-                .then( res => {
+              .then(
+            console.log(HARRY_CHARACTERS_HOUSE(house)))
+              .then( res => {
                     context.commit('SET_HARRY_ARR', res.data)
                 })
                 .catch(err => console.log(err))

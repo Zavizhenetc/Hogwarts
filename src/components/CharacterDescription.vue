@@ -108,20 +108,21 @@ export default {
   right: 0;
   bottom: 0;
   z-index: 999;
-  animation: blur 1.5s ease ;
+  animation: blur .9s ease ;
 
   &__close-btn {
     object-fit: contain;
-    max-width: 28px;
-    max-height: 28px;
+    max-width: 18px;
+    max-height: 18px;
     position: absolute;
     right: 18px;
     top: 18px;
-    transition: all .6s ease;
+    transition: all .7s ease;
 
     &:hover {
-      transition: all .6s ease;
-      transform: scale3d(1.2, 1.2, 2) rotate(360deg);
+      transition: all .7s ease;
+      transform: scale3d(1.5, 1.5, 2)  rotate(360deg);
+
     }
 
   }
@@ -202,12 +203,12 @@ export default {
 
 @keyframes blur {
   0% {
-    opacity: .05;
+    opacity: .01;
     filter: blur(40px);
-    transform: scale3d(.001, .001, 0);
+    transform: scale3d(0, 0, 0);
   }
   50% {
-    opacity: .5;
+    //opacity: .5;
     filter: blur(20px);
   }
   100% {

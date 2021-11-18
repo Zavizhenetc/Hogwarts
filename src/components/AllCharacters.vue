@@ -20,13 +20,11 @@
           }}
         </div>
       </div>
-
     </div>
   </div>
 </template>
 <script>
 import CharDescription from "@/components/CharacterDescription.vue";
-import HARRY_CHARACTERS from "../api/routes";
 export default {
   name: 'AllCharacters',
   components: {CharDescription},
@@ -50,7 +48,6 @@ export default {
     showDescription(item) {
       this.description = item;
       this.$store.dispatch('showCharDescription', true);
-      console.log(this.description)
     }
   },
 
