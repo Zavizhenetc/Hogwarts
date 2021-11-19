@@ -207,7 +207,6 @@ export default {
     filter: blur(40px);
     transform: scale(0);
   }
-
   100% {
     opacity: 1;
     filter: blur(0);
