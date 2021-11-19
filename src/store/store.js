@@ -12,49 +12,47 @@ export default new Vuex.Store({
                 path: '/',
                 img: null,
                 id: 1,
-                fetchPath:'HARRY_CHARACTERS',
             },
             {
                 title: 'Hogwarts staff',
-                path: '/',
+                path: '/staff-characters',
                 img: null,
                 id: 2,
-                fetchPath:'HARRY_CHARACTERS_STAFF',
             },
             {
                 title: 'Hogwarts students',
-                path: '/',
+                path: '/student-characters',
                 img: null,
                 id: 3,
-                fetchPath:'HARRY_CHARACTERS_STUDENTS',
+
             },
             {
                 title: 'Gryffindor',
-                path: '/',
+                path: '/gryffindor-characters',
                 img: 'https://i.ibb.co/Q8mCG6J/griffindor-logo.png',
                 id: 4,
-                fetchPath:'HARRY_CHARACTERS_HOUSE(gryffindor)',
+
             },
             {
                 title: 'Hufflepuff',
-                path: '/',
+                path: '/hufflepuff-characters',
                 img: 'https://i.ibb.co/XLrbDvT/Hufflepuff-logo.png',
                 id: 5,
-                fetchPath:'HARRY_CHARACTERS_HOUSE(hufflepuff)',
+
             },
             {
                 title: 'Ravenclaw',
-                path: '/',
+                path: '/ravenclaw-characters',
                 img: 'https://i.ibb.co/92B1vm1/Ravenclaw-logo.png',
                 id: 6,
-                fetchPath:'HARRY_CHARACTERS_HOUSE(ravenclaw)',
+
             },
             {
                 title: 'Slytherin',
-                path: '/',
+                path: '/slytherin-characters',
                 img: 'https://i.ibb.co/MgD0d4N/Slytherin-logo.png',
                 id: 7,
-                fetchPath:'HARRY_CHARACTERS_HOUSE(slytherin)',
+
             },
         ],
         harryArr: [],

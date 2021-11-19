@@ -205,12 +205,9 @@ export default {
   0% {
     opacity: .01;
     filter: blur(40px);
-    transform: scale3d(0, 0, 0);
+    transform: scale(0);
   }
-  50% {
-    //opacity: .5;
-    filter: blur(20px);
-  }
+
   100% {
     opacity: 1;
     filter: blur(0);

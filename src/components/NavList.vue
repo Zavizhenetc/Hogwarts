@@ -3,8 +3,7 @@
     <li class="nav__item"
         v-for="item in navList" :key="item.id"
     >
-      <router-link :to="{path:item.path}" class="nav__btn"
-      @click.native="fetchChar(item.id)">
+      <router-link :to="{path:item.path}" class="nav__btn">
         <p class="nav__item-title">{{ item.title }} </p>
         <img class="nav__item-logo"
              v-if="item.img != null" :src="`${item.img}`"
@@ -27,25 +26,6 @@ export default {
     },
   },
   methods: {
-    fetchChar(id){
-      if(id == 1){
-        this.$store.dispatch('fetchHarry')
-      } else if(id == 2){
-        this.$store.dispatch('fetchHarryStaff')
-      } else if(id == 3){
-        this.$store.dispatch('fetchHarryStudents')
-      } else if( id == 4){
-        this.$store.dispatch('fetchHarryHouse', 'gryffindor')
-      }else if( id == 5){
-        this.$store.dispatch('fetchHarryHouse', 'hufflepuff')
-      }else if( id == 6){
-        this.$store.dispatch('fetchHarryHouse', 'ravenclaw')
-      }else if( id == 7){
-        this.$store.dispatch('fetchHarryHouse', 'slytherin')
-      }
-
-
-    },
   },
 
   mounted() {
@@ -86,7 +66,7 @@ export default {
       transition: all .6s ease;
       opacity: 1;
       filter: blur(0);
-      transform: scale3d(1.3, 1.2, 2.2) translate(20%, 0) ;
+      transform: scale3d(1.3, 1.3, 2.2) translate(20%, 0) ;
     }
   }
 

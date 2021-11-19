@@ -69,7 +69,7 @@ export default {
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
   grid-gap: 18px;
   grid-row-gap: 40px;
-  animation: blur 2.6s ease;
+  animation: blur 3s ease;
 
   &__item {
     display: flex;
@@ -140,19 +140,17 @@ export default {
     }
   }
 }
-
 @keyframes blur {
   0% {
-    opacity: .08;
+    opacity: .05;
     filter: blur(40px);
-    transform: translateY(-100%) scale3d(.01, .01, 1);
+    //transform: scale3d(.01, .01, 1);
   }
-
-
   100% {
     opacity: 1;
     filter: blur(0);
   }
 }
+
 
 </style>

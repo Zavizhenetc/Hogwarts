@@ -1,23 +1,44 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
+import AllCharacters from '../views/AllCharacters.vue'
 
 Vue.use(VueRouter)
 
 const routes = [
   {
     path: '/',
-    name: 'home',
-    component: Home
+    name: 'allCharacters',
+    component: AllCharacters
   },
   {
-    path: '/about',
-    name: 'About',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
-  }
+    path: '/staff-characters',
+    name: 'StaffCharacters',
+    component: () => import(/* webpackChunkName: "about" */ '../views/StaffCharacters.vue')
+  },
+  {
+    path: '/student-characters',
+    name: 'StudentsCharacters',
+    component: () => import(/* webpackChunkName: "about" */ '../views/StudentsCharacters.vue')
+  },
+  {
+    path: '/gryffindor-characters',
+    name: 'GryffindorCharacters.',
+    component: () => import(/* webpackChunkName: "about" */ '../views/GryffindorCharacters.vue')
+  },
+  {
+    path: '/hufflepuff-characters',
+    name: 'HufflepuffCharacters.',
+    component: () => import(/* webpackChunkName: "about" */ '../views/HufflepuffCharacters.vue')
+  },
+  {
+    path: '/ravenclaw-characters',
+    name: 'RavenclawCharacters.',
+    component: () => import(/* webpackChunkName: "about" */ '../views/RavenclawCharacters.vue')
+  },  {
+    path: '/slytherin-characters',
+    name: 'SlytherinCharacters.',
+    component: () => import(/* webpackChunkName: "about" */ '../views/SlytherinCharacters.vue')
+  },
 ]
 
 const router = new VueRouter({
