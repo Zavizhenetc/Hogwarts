@@ -1,5 +1,5 @@
 import axios from 'axios';
 
 export const axiosHarryInstance = axios.create({
-    baseURL: 'http://hp-api.herokuapp.com/api/',
+    baseURL: 'https://hp-api.herokuapp.com/api/',
 });
