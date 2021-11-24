@@ -55,11 +55,11 @@ body {
 
 
 .fade-enter-active {
-  transition: all 1s ease-in;
+  transition: all .6s ease-in;
 }
 
 .fade-leave-active {
-  transition: all 1s ease-out;
+  transition: all .6s ease-out;
 }
 
 .fade-enter {

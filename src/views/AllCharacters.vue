@@ -69,7 +69,7 @@ export default {
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
   grid-gap: 18px;
   grid-row-gap: 40px;
-  animation: blur 3s ease;
+  animation: blur 2s ease;
 
   &__item {
     display: flex;

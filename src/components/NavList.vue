@@ -57,17 +57,7 @@ export default {
   }
 
   &__item {
-    opacity: .2;
-    transition: all .6s ease;
-    transform: scale3d(.75, 2, 2.2);
-    filter: blur(1.5px);
 
-    &:hover {
-      transition: all .6s ease;
-      opacity: 1;
-      filter: blur(0);
-      transform: scale3d(1.3, 1.3, 2.2) translate(20%, 0) ;
-    }
   }
 
   &__item-title {
@@ -97,6 +87,30 @@ export default {
 
 
 }
+@media screen and (min-width: 1024px){
+  .nav{
+    &__item {
+      opacity: .2;
+      transition: all .6s ease;
+      transform: scale3d(.75, 2, 2.2);
+      filter: blur(1.5px);
 
+      &:hover {
+        transition: all .6s ease;
+        opacity: 1;
+        filter: blur(0);
+        transform: scale3d(1.3, 1.3, 2.2) translate(20%, 0) ;
+      }
+    }
+  }
+}
+@media screen and (max-width: 1024px){
+  .nav{
+    flex-direction: initial;
+    overflow-x: scroll;
+    max-width: 100%;
+
+  }
+}
 
 </style>
