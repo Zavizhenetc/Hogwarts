@@ -110,17 +110,13 @@ export default {
     z-index: 999;
   }
   .aside {
-    //display: none;
+    padding-left: 10px;
     position: fixed;
+    z-index: 999;
     top: 0;
     max-width: 100%;
     height: 82px;
-    &_mob {
-      display: initial;
-      border-radius: 2%;
-      box-shadow: 0px 0px 18px 4px rgb(0 0 0 / 95%);
-      animation: blur 1.5s ease;
-    }
+    box-shadow: 0px 0px 18px 4px rgb(0 0 0 / 95%);
   }
 }
 </style>

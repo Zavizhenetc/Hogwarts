@@ -120,6 +120,15 @@ body {
   z-index: 0;
   animation: splashStart 1s ease;
 }
+@media screen and (max-width: 1024px){
+  .app{
+
+    &__characters{
+      padding-top: 60px;
+      max-width: 100%;
+    }
+  }
+}
 
 @keyframes splashStart {
   0% {

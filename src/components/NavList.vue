@@ -3,12 +3,15 @@
     <li class="nav__item"
         v-for="item in navList" :key="item.id"
     >
-      <router-link :to="{path:item.path}" class="nav__btn">
-        <p class="nav__item-title">{{ item.title }} </p>
-        <img class="nav__item-logo"
-             v-if="item.img != null" :src="`${item.img}`"
-             :alt="`${item.title}-logo`"
-        >
+      <router-link :to="{path:item.path}">
+        <div class="nav__btn">
+          <p class="nav__item-title">{{ item.title }} </p>
+          <img class="nav__item-logo"
+               v-if="item.img != null" :src="`${item.img}`"
+               :alt="`${item.title}-logo`"
+          >
+        </div>
+
       </router-link>
     </li>
   </ul>
@@ -25,8 +28,7 @@ export default {
       return this.$store.getters.GET_NAV_LIST;
     },
   },
-  methods: {
-  },
+  methods: {},
 
   mounted() {
 
@@ -71,9 +73,7 @@ export default {
 
   &__item a {
     text-decoration: none;
-    display: flex;
-    width: 100%;
-    height: auto;
+
     cursor: var(--cursor);
 
   }
@@ -85,10 +85,17 @@ export default {
 
   }
 
+  &__btn {
+    display: flex;
+    width: 100%;
+    height: auto;
+  }
+
 
 }
-@media screen and (min-width: 1024px){
-  .nav{
+
+@media screen and (min-width: 1024px) {
+  .nav {
     &__item {
       opacity: .2;
       transition: all .6s ease;
@@ -99,17 +106,25 @@ export default {
         transition: all .6s ease;
         opacity: 1;
         filter: blur(0);
-        transform: scale3d(1.3, 1.3, 2.2) translate(20%, 0) ;
+        transform: scale3d(1.3, 1.3, 2.2) translate(20%, 0);
       }
     }
   }
 }
-@media screen and (max-width: 1024px){
-  .nav{
+
+@media screen and (max-width: 1024px) {
+  .nav {
     flex-direction: initial;
     overflow-x: scroll;
     max-width: 100%;
+    height: 100%;
+    &__btn {
+      min-width: 340px;
+      height: 82px;
+      align-items: center;
+      justify-content: center;
 
+    }
   }
 }
 
