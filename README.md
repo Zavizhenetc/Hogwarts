@@ -1,6 +1,6 @@
 # hogwarts
-#Deploy 
-See [Deploy gh-pages](https://zavizhenetc.github.io/hogwarts/).
+#See [Deploy gh-pages](https://zavizhenetc.github.io/hogwarts/). 
+
 ## Project setup
 ```
 npm install
